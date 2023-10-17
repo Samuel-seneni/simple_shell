@@ -83,6 +83,7 @@ typedef struct builtin
 	int (*func)(info_t *);
 } builtin_table;
 
+char split_str(void);
 int hsh(info_t *info, char **argv);
 int find_builtin(info_t *info);
 void find_cmd(info_t *info);
