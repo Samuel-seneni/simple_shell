@@ -21,8 +21,8 @@ char **strtow(char *str, char *delim)
 	if (!delim)
 		delim = " ";
 	for (x = 0; str[x] != '\0'; x++)
-		if (!is_delim(str[x], delim) && (is_delim(str[x + 1], 
-			delim) || !str[x + 1])) num++;
+	if (!is_delim(str[x], delim) && (is_delim(str[x + 1], delim)
+			|| !str[x + 1])) num++;
 
 	if (num == 0)
 		return (NULL);
