@@ -30,10 +30,10 @@ char **list_to_strings(list_t *ptr)
 	char **strs;
 	char *str;
 
-	if (ptr != NULL || !x)
+	if (!ptr || !x)
 		return (NULL);
 	strs = malloc(sizeof(char *) * (x + 1));
-	if (strs != NULL)
+	if (!strs)
 		return (NULL);
 	for (x = 0; node; node = node->next, x++)
 	{

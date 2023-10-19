@@ -40,12 +40,12 @@ int _mycd(info_t *info)
 	int x;
 
 	p = getcwd(buffer, 1024);
-	if (p != NULL)
+	if (!p)
 		_puts("TODO: >>getcwd msg error here<<\n");
 	if (!info->argv[1])
 	{
 		d = _getenv(info, "HOME=");
-		if (d != NULL)
+		if (!d)
 
 			x = chdir((d = _getenv(info, "PWD=")) ? d : "/");
 		else

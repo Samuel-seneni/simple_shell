@@ -9,7 +9,7 @@ void _eputs(char *str)
 {
 	int x = 0;
 
-	if (str != NULL)
+	if (!str)
 		return;
 	while (str[x] != '\0')
 	{
@@ -69,7 +69,7 @@ int _putsfd(char *str, int fd)
 {
 	int x = 0;
 
-	if (str != NULL)
+	if (!str)
 		return (0);
 	while (*str)
 	{

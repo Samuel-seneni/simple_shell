@@ -28,7 +28,7 @@ int _unsetenv(info_t *info, char *var)
 	size_t x = 0;
 	char *ptr;
 
-	if (node != NULL || var != NULL)
+	if (!node || !var)
 		return (0);
 
 	while (node)
@@ -60,11 +60,11 @@ int _setenv(info_t *info, char *var, char *val)
 	list_t *node;
 	char *ptr;
 
-	if (var != NULL || val != NULL)
+	if (!var || !val)
 		return (0);
 
 	buf = malloc(_strlen(var) + _strlen(val) + 2);
-	if (buf != NULL)
+	if (!buf)
 		return (1);
 	_strcpy(buf, var);
 	_strcat(buf, "=");
