@@ -24,7 +24,7 @@ int unset_alias(info_t *info, char *str)
 	int x;
 
 	ptr = _strchr(str, '=');
-	if (ptr != NULL)
+	if (!ptr)
 		return (1);
 	c = *ptr;
 	*ptr = 0;
@@ -35,17 +35,17 @@ int unset_alias(info_t *info, char *str)
 }
 
 /**
- * set_alias - sets string alias
+ * set_alias - sets alias to string
  * @info: parameter struct and info
  * @str: the string alias
- * Return: Always 0
+ * Return: Always 0 
  */
 int set_alias(info_t *info, char *str)
 {
 	char *ptr;
 
 	ptr = _strchr(str, '=');
-	if (ptr != NULL)
+	if (!ptr)
 		return (1);
 	if (!*++ptr)
 		return (unset_alias(info, str));
@@ -56,18 +56,18 @@ int set_alias(info_t *info, char *str)
 
 /**
  * print_alias - prints string alias
- * @n: the alias node
+ * @node: the alias node
  * Return: Always 0
  */
-int print_alias(list_t *n)
+int print_alias(list_t *node)
 {
 	char *ptr = NULL;
 	char *h = NULL;
 
-	if (n)
+	if (node)
 	{
-		ptr = _strchr(n->str, '=');
-		for (h = n->str; h <= ptr; h++)
+		ptr = _strchr(node->str, '=');
+		for (h = node->str; h <= ptr; h++)
 			_putchar(*h);
 		_putchar('\'');
 		_puts(ptr + 1);
